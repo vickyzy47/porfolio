@@ -499,9 +499,9 @@
           <button class="social-icon" id="emailBtn" type="button" title="Email" style="border:none;background:none;cursor:pointer;">
             <svg viewBox="0 0 24 24" style="stroke:var(--text-2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:16px;height:16px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </button>
-          <button class="social-icon" id="coffeeBtnMini" type="button" title="Coffee Chat" style="border:none;background:none;cursor:pointer;">
-            <svg viewBox="0 0 24 24" style="stroke:var(--text-2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:16px;height:16px;"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><line x1="6" y1="2" x2="6" y2="4"></line><line x1="10" y1="2" x2="10" y2="4"></line><line x1="14" y1="2" x2="14" y2="4"></line></svg>
-          </button>
+          <a class="social-icon" href="https://www.linkedin.com/in/ziyue-yang-aba9091a7" target="_blank" rel="noopener" title="LinkedIn" style="display:inline-flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 24 24" style="stroke:var(--text-2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:16px;height:16px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
         </div>
       </div>
 
@@ -623,10 +623,10 @@
   <!-- ═══ Contact ═══ -->
   <section class="cta" id="contact">
     <div class="reveal">
-      <h2 class="cta-heading">有想法？<br><span class="dim">随时聊聊</span></h2>
+      <h2 class="cta-heading">有想法？<br><span class="dim">阿里钉搜我聊聊</span></h2>
       <button class="cta-btn" id="coffeeChatBtn" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><line x1="6" y1="2" x2="6" y2="4"></line><line x1="10" y1="2" x2="10" y2="4"></line><line x1="14" y1="2" x2="14" y2="4"></line></svg>
-        Coffee Chat
+        阿里钉找我
       </button>
     </div>
   </section>
@@ -643,8 +643,8 @@
     <div class="modal-card">
       <button class="modal-close" id="modalClose">×</button>
       <span class="modal-emoji">☕</span>
-      <h3 class="modal-title">留下一串神秘代码</h3>
-      <p class="modal-sub">在钉钉搜索以下号码，即可发起聊天</p>
+      <h3 class="modal-title">阿里钉搜索以下工号</h3>
+      <p class="modal-sub">在阿里钉搜索工号，即可找到我</p>
       <div class="modal-code" id="modalCode" title="点击复制">498322</div>
       <p class="modal-hint" id="modalHint">点击代码即可复制</p>
     </div>
@@ -693,7 +693,6 @@
     // Modal
     const modal = document.getElementById('codeModal');
     const coffeeBtn = document.getElementById('coffeeChatBtn');
-    const coffeeBtnMini = document.getElementById('coffeeBtnMini');
     const closeBtn = document.getElementById('modalClose');
     const codeEl = document.getElementById('modalCode');
     const hintEl = document.getElementById('modalHint');
@@ -706,7 +705,6 @@
     }
 
     coffeeBtn.addEventListener('click', function(e) { e.preventDefault(); showModal(); });
-    coffeeBtnMini.addEventListener('click', showModal);
     closeBtn.addEventListener('click', hideModal);
     modal.addEventListener('click', function(e) { if (e.target === modal) hideModal(); });
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') hideModal(); });
@@ -714,7 +712,7 @@
     codeEl.addEventListener('click', function() {
       navigator.clipboard.writeText('498322').then(function() {
         codeEl.classList.add('copied');
-        hintEl.textContent = '\u2713 已复制，去钉钉搜索吧';
+        hintEl.textContent = '\u2713 已复制，去阿里钉搜索吧';
       }).catch(function() {
         const range = document.createRange();
         range.selectNodeContents(codeEl);
