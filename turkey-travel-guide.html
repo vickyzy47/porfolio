@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
+<title>🐱 土耳其🇹🇷旅行攻略 · 9.26–10.8</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFF8F0;--card:#fff;--card2:#FFF3E6;
+  --pri:#FF6B35;--pri2:#FF8C42;--pri3:#FFB347;
+  --gold:#F7C948;--cream:#FFEDD5;--peach:#FEC89A;
+  --ink:#3D2C2E;--mut:#9B8579;--lit:#C4AFA0;
+  --coral:#FF7F6E;--brown:#5D4037;
+  --bdr:#FFE8D6;--sh:0 4px 20px rgba(255,107,53,.1);
+  --r:16px;--rs:10px;
+  --ff:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--ff);background:var(--bg);color:var(--ink);line-height:1.75;overflow-x:hidden}
+a{color:var(--pri);text-decoration:none}a:hover{color:var(--pri2)}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.01em}
+h2{font-size:1.6rem;margin-bottom:4px}
+.sd{color:var(--mut);margin-bottom:22px;font-size:.9rem}
+.w{max-width:1060px;margin:0 auto;padding:0 20px}
+section{padding:48px 0}
+
+/* paw bg pattern */
+body::before{content:'🐾';position:fixed;top:10%;right:5%;font-size:60px;opacity:.04;transform:rotate(-20deg);pointer-events:none;z-index:0}
+body::after{content:'🐾';position:fixed;bottom:15%;left:3%;font-size:50px;opacity:.04;transform:rotate(15deg);pointer-events:none;z-index:0}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:999;background:rgba(255,248,240,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--bdr)}
+.ni{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px}
+.nb{font-size:1.1rem;font-weight:800;color:var(--pri);display:flex;align-items:center;gap:4px}
+nav ul{list-style:none;display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+nav ul::-webkit-scrollbar{display:none}
+nav ul a{font-size:.82rem;padding:6px 14px;border-radius:20px;white-space:nowrap;color:var(--mut);font-weight:600;transition:.2s}
+nav ul a:hover,nav ul a.on{background:var(--pri);color:#fff;text-decoration:none}
+
+/* HERO */
+.hero{padding:80px 20px 50px;text-align:center;background:linear-gradient(160deg,#FFF8F0 0%,#FFECD2 30%,#FCB69F 70%,#FF9A76 100%);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:70px;background:linear-gradient(transparent,var(--bg))}
+.hero-cat{font-size:3.2rem;margin-bottom:10px;animation:catBounce 2s ease-in-out infinite}
+@keyframes catBounce{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-6px) rotate(-3deg)}75%{transform:translateY(-3px) rotate(3deg)}}
+.badge{display:inline-block;background:var(--pri);color:#fff;font-size:.75rem;font-weight:700;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:.5px}
+.hero h1{font-size:clamp(1.9rem,5.5vw,3.2rem);color:var(--brown);margin-bottom:10px}
+.hero>p{font-size:1rem;color:var(--mut);max-width:480px;margin:0 auto 22px}
+.htags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.htag{background:rgba(255,255,255,.75);backdrop-filter:blur(6px);padding:8px 16px;border-radius:24px;font-size:.83rem;font-weight:600;color:var(--brown);box-shadow:0 1px 8px rgba(0,0,0,.04)}
+
+/* FLIGHT CARDS */
+.fc-wrap{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:6px 2px 16px;scrollbar-width:none}
+.fc-wrap::-webkit-scrollbar{display:none}
+.fc{flex:0 0 300px;scroll-snap-align:start;background:var(--card);border-radius:var(--r);border:1px solid var(--bdr);box-shadow:var(--sh);overflow:hidden;transition:.25s;position:relative}
+.fc:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,107,53,.15)}
+.fc-head{background:linear-gradient(135deg,var(--pri),var(--pri2));padding:12px 18px;display:flex;align-items:center;justify-content:space-between;color:#fff}
+.fc-head h4{font-size:.85rem;font-weight:700}
+.fc-head .fc-badge{font-size:.7rem;background:rgba(255,255,255,.25);padding:2px 10px;border-radius:12px}
+.fc-body{padding:18px}
+.fc-route{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.fc-city{text-align:center}
+.fc-code{font-size:1.4rem;font-weight:800;color:var(--pri);letter-spacing:.05em}
+.fc-name{font-size:.7rem;color:var(--mut);margin-top:2px}
+.fc-arrow{color:var(--lit);font-size:1.2rem;display:flex;flex-direction:column;align-items:center;gap:2px}
+.fc-arrow span{font-size:.6rem;color:var(--mut)}
+.fc-info{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-top:1px dashed var(--bdr);padding-top:12px}
+.fc-info-item{font-size:.78rem;color:var(--mut)}
+.fc-info-item b{color:var(--ink);display:block;font-size:.82rem;margin-top:1px}
+.fc-cat{position:absolute;bottom:8px;right:12px;font-size:1.2rem;opacity:.3}
+
+/* DAY TABS */
+.dts{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.dts::-webkit-scrollbar{display:none}
+.dtab{flex-shrink:0;padding:10px 18px;border-radius:var(--r);border:2px solid var(--bdr);background:var(--card);cursor:pointer;font-size:.82rem;font-weight:700;color:var(--mut);text-align:center;transition:.25s;position:relative}
+.dtab:hover{border-color:var(--pri2);color:var(--pri)}
+.dtab.on{background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;border-color:var(--pri);box-shadow:0 3px 12px rgba(255,107,53,.25)}
+.dtab small{display:block;font-size:.66rem;opacity:.75;margin-top:2px;font-weight:500}
+
+/* DAY CONTENT */
+.dc{background:var(--card);border-radius:var(--r);border:1px solid var(--bdr);box-shadow:var(--sh);padding:28px;animation:fu .35s ease}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.dh{margin-bottom:22px;padding-bottom:18px;border-bottom:2px dashed var(--bdr)}
+.dh h3{font-size:1.35rem;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.dh h3 .dcat{font-size:1.1rem}
+.dh p{color:var(--mut);font-size:.88rem}
+.dr{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.dr span{font-size:.73rem;padding:4px 12px;border-radius:12px;background:var(--cream);color:var(--brown);font-weight:600}
+.ds{font-size:.9rem;margin-bottom:18px;line-height:1.8}
+.tr{background:linear-gradient(135deg,#FFF5EB,#FFECD2);border-radius:var(--rs);padding:14px 16px;margin:16px 0;border:1px solid var(--bdr);font-size:.86rem;display:flex;align-items:flex-start;gap:8px}
+.tr-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+
+/* SPOT */
+.sp{margin-bottom:18px;padding:18px;background:var(--card2);border-radius:var(--rs);border:1px solid var(--bdr);transition:.2s}
+.sp:hover{box-shadow:0 2px 12px rgba(255,107,53,.08)}
+.sh{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.sn{font-weight:700;font-size:1rem}
+.se{font-size:.76rem;color:var(--mut)}
+.sm{margin-left:auto;font-size:.73rem;padding:5px 12px;border-radius:12px;background:var(--pri);color:#fff;white-space:nowrap;text-decoration:none;font-weight:600;transition:.2s}
+.sm:hover{background:var(--pri2);color:#fff}
+.sb{font-size:.88rem;line-height:1.8;margin-bottom:10px}
+.tb{font-size:.8rem;color:var(--mut);padding:10px 14px;background:var(--card);border-radius:var(--rs);border-left:3px solid var(--gold);margin-top:8px}
+.tb.t2{border-left-color:var(--coral)}
+.tb b{color:var(--ink)}
+.nr{font-size:.78rem;color:var(--pri2);margin-top:6px;font-weight:600}
+
+/* MAP */
+.mw{position:relative;background:linear-gradient(135deg,#FFF5EB,#FFECD2);border-radius:var(--r);overflow:hidden;border:1px solid var(--bdr);box-shadow:var(--sh)}
+.mw svg{width:100%;height:auto;display:block}
+.mp{position:absolute;transform:translate(-50%,-50%);cursor:pointer;transition:.25s;z-index:2}
+.mp:hover{z-index:10;transform:translate(-50%,-50%) scale(1.4)}
+.md{width:22px;height:22px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center}
+.md span{color:#fff;font-size:8px;font-weight:800;line-height:1}
+.mt{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--brown);color:#fff;padding:6px 12px;border-radius:8px;font-size:.72rem;white-space:nowrap;z-index:20;pointer-events:none;box-shadow:0 3px 10px rgba(0,0,0,.15);font-weight:600}
+.mt::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--brown)}
+.mp:hover .mt{display:block}
+.lg{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.lgi{display:flex;align-items:center;gap:5px;font-size:.75rem;color:var(--mut);font-weight:600}
+.lgd{width:11px;height:11px;border-radius:50%;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+
+/* TODO */
+.todo-box{background:var(--card);border-radius:var(--r);border:1px solid var(--bdr);box-shadow:var(--sh);padding:24px;max-width:600px}
+.todo-input{display:flex;gap:10px;margin-bottom:18px}
+.todo-input input{flex:1;padding:10px 16px;border:2px solid var(--bdr);border-radius:var(--rs);font-size:.9rem;font-family:var(--ff);outline:none;transition:.2s;background:var(--card2)}
+.todo-input input:focus{border-color:var(--pri);background:#fff}
+.todo-input button{padding:10px 20px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;border:none;border-radius:var(--rs);font-size:.88rem;font-weight:700;cursor:pointer;font-family:var(--ff);transition:.2s;white-space:nowrap}
+.todo-input button:hover{transform:translateY(-1px);box-shadow:0 3px 12px rgba(255,107,53,.3)}
+.todo-list{list-style:none}
+.todo-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--rs);margin-bottom:6px;transition:.2s;background:var(--card2);border:1px solid transparent}
+.todo-item:hover{border-color:var(--bdr)}
+.todo-item.done{opacity:.5}
+.todo-item.done .todo-text{text-decoration:line-through;color:var(--lit)}
+.todo-cb{width:20px;height:20px;border-radius:6px;border:2px solid var(--bdr);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:.2s;font-size:.7rem;color:transparent}
+.todo-item.done .todo-cb{background:var(--pri);border-color:var(--pri);color:#fff}
+.todo-text{flex:1;font-size:.88rem}
+.todo-del{font-size:.78rem;color:var(--lit);cursor:pointer;padding:4px 8px;border-radius:6px;transition:.2s;opacity:0}
+.todo-item:hover .todo-del{opacity:1}
+.todo-del:hover{background:#FEE;color:var(--coral)}
+.todo-count{font-size:.8rem;color:var(--mut);margin-top:12px;text-align:center}
+.todo-empty{text-align:center;padding:20px;color:var(--lit);font-size:.88rem}
+
+/* INFO */
+.ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.ic{background:var(--card);border-radius:var(--rs);border:1px solid var(--bdr);padding:18px}
+.ic h4{font-size:.95rem;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.ic p,.ic li{font-size:.85rem;line-height:1.75}
+.ic ul{padding-left:16px;margin-top:4px}
+
+footer{text-align:center;padding:36px 20px;color:var(--lit);font-size:.78rem;border-top:1px solid var(--bdr)}
+footer .fcat{font-size:2rem;margin-bottom:8px;opacity:.3}
+
+@media(max-width:768px){
+  .hero{padding:68px 16px 40px}.hero h1{font-size:1.8rem}
+  .dc{padding:20px 16px}.sp{padding:14px}
+  section{padding:36px 0}.w{padding:0 16px}
+  nav ul a{font-size:.74rem;padding:5px 10px}
+  .fc{flex:0 0 270px}
+  .todo-box{padding:18px}
+}
+@media(max-width:480px){
+  .htags{flex-direction:column;align-items:center}
+  .ig{grid-template-columns:1fr}
+  .fc{flex:0 0 250px}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="ni"><div class="nb">🐱 土耳其攻略</div><ul><li><a href="#fl">航班</a></li><li><a href="#it">行程</a></li><li><a href="#ms">地图</a></li><li><a href="#td">待办</a></li><li><a href="#pr">实用</a></li></ul></div></nav>
+
+<header class="hero">
+<div class="hero-cat">🐱</div>
+<div class="badge">2025 国庆 · 13天深度游</div>
+<h1>土耳其旅行攻略 🇹🇷</h1>
+<p>横跨亚欧大陆，从千年古城到热气球，沿 D400 地中海公路自驾，一路收集猫猫和快乐</p>
+<div class="htags">
+  <span class="htag">📅 9.26 – 10.8</span>
+  <span class="htag">🐾 伊斯坦布尔 · 费特希耶 · 卡什 · 安塔利亚 · 卡帕多奇亚</span>
+  <span class="htag">✈️ 杭州 ↔ IST</span>
+</div>
+</header>
+
+<!-- FLIGHTS -->
+<section id="fl"><div class="w">
+<h2>✈️ 航班信息</h2>
+<p class="sd">左右滑动查看全部航班 🐾</p>
+<div class="fc-wrap" id="FC">
+
+<div class="fc">
+  <div class="fc-head"><h4>🛫 去程 · 国际</h4><span class="fc-badge">9月26日</span></div>
+  <div class="fc-body">
+    <div class="fc-route">
+      <div class="fc-city"><div class="fc-code">HGH</div><div class="fc-name">杭州萧山</div></div>
+      <div class="fc-arrow">✈<span>约12h</span>→</div>
+      <div class="fc-city"><div class="fc-code">IST</div><div class="fc-name">伊斯坦布尔</div></div>
+    </div>
+    <div class="fc-info">
+      <div class="fc-info-item">起飞<b>9.26 · 11:00</b></div>
+      <div class="fc-info-item">到达<b>9.27 · 11:00</b></div>
+    </div>
+  </div><div class="fc-cat">🐱</div>
+</div>
+
+<div class="fc">
+  <div class="fc-head" style="background:linear-gradient(135deg,#2A9D8F,#38B2A3)"><h4>🛫 内飞 · IST→达拉曼</h4><span class="fc-badge">9月28日</span></div>
+  <div class="fc-body">
+    <div class="fc-route">
+      <div class="fc-city"><div class="fc-code">IST</div><div class="fc-name">伊斯坦布尔</div></div>
+      <div class="fc-arrow">✈<span>约1.5h</span>→</div>
+      <div class="fc-city"><div class="fc-code">DLM</div><div class="fc-name">达拉曼</div></div>
+    </div>
+    <div class="fc-info">
+      <div class="fc-info-item">用途<b>接驳自驾起点</b></div>
+      <div class="fc-info-item">取车<b>达拉曼机场</b></div>
+    </div>
+  </div><div class="fc-cat">🐈</div>
+</div>
+
+<div class="fc">
+  <div class="fc-head" style="background:linear-gradient(135deg,#E76F51,#F4A261)"><h4>🛫 内飞 · 安塔利亚→开塞利</h4><span class="fc-badge">10月2日</span></div>
+  <div class="fc-body">
+    <div class="fc-route">
+      <div class="fc-city"><div class="fc-code">AYT</div><div class="fc-name">安塔利亚</div></div>
+      <div class="fc-arrow">✈<span>约1h</span>→</div>
+      <div class="fc-city"><div class="fc-code">ASR</div><div class="fc-name">开塞利</div></div>
+    </div>
+    <div class="fc-info">
+      <div class="fc-info-item">用途<b>前往卡帕多奇亚</b></div>
+      <div class="fc-info-item">接驳<b>预订接机→格雷梅</b></div>
+    </div>
+  </div><div class="fc-cat">🐾</div>
+</div>
+
+<div class="fc">
+  <div class="fc-head" style="background:linear-gradient(135deg,#5D4037,#8D6E63)"><h4>🛬 回程 · 国际</h4><span class="fc-badge">10月7日</span></div>
+  <div class="fc-body">
+    <div class="fc-route">
+      <div class="fc-city"><div class="fc-code">IST</div><div class="fc-name">伊斯坦布尔</div></div>
+      <div class="fc-arrow">✈<span>约10h</span>→</div>
+      <div class="fc-city"><div class="fc-code">HGH</div><div class="fc-name">杭州萧山</div></div>
+    </div>
+    <div class="fc-info">
+      <div class="fc-info-item">起飞<b>10.7 · 12:30</b></div>
+      <div class="fc-info-item">到达<b>10.8 · 16:10</b></div>
+    </div>
+  </div><div class="fc-cat">🐱</div>
+</div>
+
+</div>
+</div></section>
+
+<!-- ITINERARY -->
+<section id="it"><div class="w">
+<h2>🗓️ 每日行程</h2>
+<p class="sd">点击切换查看每日详细安排与景点攻略</p>
+<div class="dts" id="DT"></div>
+<div class="dc" id="DC"></div>
+</div></section>
+
+<!-- MAP -->
+<section id="ms"><div class="w">
+<h2>🗺️ 行程地图</h2>
+<p class="sd">悬浮查看景点名称，点击跳转 Google Maps · 不同颜色代表不同天</p>
+<div class="mw" id="MW">
+<svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFECD2"/><stop offset="100%" stop-color="#FFE0C0"/></linearGradient></defs>
+<rect width="800" height="440" fill="url(#sg)"/>
+<path d="M55,115 Q75,95 120,90 Q170,80 210,85 Q250,75 290,70 Q330,65 360,72 Q395,58 435,55 Q475,50 515,53 Q555,55 595,65 Q635,75 675,95 Q695,110 715,125 Q735,145 745,175 Q750,205 740,235 Q725,265 705,285 Q675,315 645,330 Q605,345 565,350 Q525,353 485,347 Q445,340 415,335 Q375,330 345,335 Q315,343 285,350 Q255,355 225,350 Q195,340 165,325 Q135,305 115,280 Q95,255 80,225 Q65,195 60,165 Q53,140 55,115Z" fill="#FFF3E6" stroke="#E8D5C0" stroke-width="1.5"/>
+<ellipse cx="485" cy="195" rx="58" ry="42" fill="#FFEDD5" opacity=".6"/>
+<path d="M165,325 Q195,340 225,350 Q255,355 285,350 Q315,343 345,335 Q375,330 415,335 Q445,340 485,347" fill="none" stroke="var(--pri)" stroke-width="2.5" stroke-dasharray="6,4" opacity=".3"/>
+<text x="290" y="380" font-size="12" fill="#C4AFA0" font-family="sans-serif" font-weight="600">D400 沿海公路</text>
+<text x="68" y="135" font-size="13" fill="#9B8579" font-family="sans-serif" font-weight="700">🐱 伊斯坦布尔</text>
+<text x="440" y="178" font-size="13" fill="#9B8579" font-family="sans-serif" font-weight="700">🎈 卡帕多奇亚</text>
+<text x="210" y="308" font-size="11" fill="#C4AFA0" font-family="sans-serif" font-weight="600">🌊 地中海沿岸</text>
+<polyline points="100,125 190,330 275,345 340,335 485,195 100,125" fill="none" stroke="#ddd" stroke-width="1.5" stroke-dasharray="4,4" opacity=".35"/>
+</svg>
+</div>
+<div class="lg" id="LG"></div>
+</div></section>
+
+<!-- TODO -->
+<section id="td"><div class="w">
+<h2>📋 出行待办</h2>
+<p class="sd">勾选已完成的，添加新的待办事项 🐾</p>
+<div class="todo-box">
+  <div class="todo-input">
+    <input type="text" id="TI" placeholder="添加新的待办事项..." onkeydown="if(event.key==='Enter')addTodo()">
+    <button onclick="addTodo()">+ 添加</button>
+  </div>
+  <ul class="todo-list" id="TL"></ul>
+  <div class="todo-count" id="TC"></div>
+</div>
+</div></section>
+
+<!-- PRACTICAL -->
+<section id="pr"><div class="w">
+<h2>🎒 实用信息</h2>
+<p class="sd">出行前必读的实用贴士</p>
+<div class="ig">
+  <div class="ic"><h4>🚗 自驾 & 租车</h4>
+    <p>推荐 <a href="https://www.cizgirentacar.com" target="_blank">cizgi rent a car</a>，通常比国内平台便宜，官网预订无需提前付款。</p>
+    <ul><li><b>异地还车</b>费用较高，注意对比</li><li>无车时可 WhatsApp 联系客服</li><li>注意取消默认勾选的 HGS 高速费预存</li><li>取车：护照 + 国际驾照/翻译件 + 信用卡</li></ul>
+  </div>
+  <div class="ic"><h4>🏨 住宿建议</h4>
+    <ul><li><b>卡帕多奇亚：</b>推荐体验洞穴酒店（较贵，需提前订）🐱</li><li><b>格雷梅小镇：</b>中心普通酒店性价比高</li><li><b>伊斯坦布尔：</b>苏丹阿赫迈特区交通便利</li></ul>
+  </div>
+  <div class="ic"><h4>⚠️ 注意事项</h4>
+    <ul><li>热气球受天气影响，建议预留 2 天窗口</li><li>D400 弯道多，自驾注意安全</li><li>里拉波动大，建议当地换汇</li><li>清真寺需着装得体，女士戴头巾</li><li>部分成员 10.5-10.6 提前返回</li></ul>
+  </div>
+  <div class="ic"><h4>🐱 土耳其猫猫小贴士</h4>
+    <ul><li>土耳其是著名的「猫之国」，街头随处可见被照顾的流浪猫</li><li>伊斯坦布尔有猫咪专属博物馆和猫纪念碑</li><li>拍照前注意尊重当地人和猫咪</li><li>可以带些猫粮，街头猫猫会很开心</li></ul>
+  </div>
+</div>
+</div></section>
+
+<footer><div class="fcat">🐱</div><p>🇹🇷 土耳其旅行攻略 · 内容仅供参考，出行前请核实最新信息</p><p style="margin-top:3px">杭州分队 · 2025 国庆 · 一路有猫 🐾</p></footer>
+
+<script>
+(function(){
+var CC={1:'#94A3B8',2:'#FF6B35',3:'#2A9D8F',4:'#F7C948',5:'#F4A261',6:'#E76F51',7:'#457B9D',8:'#6C5CE7',9:'#A29BFE',10:'#00B894',11:'#00CEC9',12:'#636E72',13:'#B2BEC3'};
+var CATS=['🐱','🐈','🐾','😺','😸','🙀','😻','😽','🐈‍⬛','😼'];
+
+var TL=[
+{d:1,t:'9.26 周五',n:'出发日',s:'11:00 萧山机场起飞'},
+{d:2,t:'9.27 周六',n:'伊斯坦布尔·老城区',s:'蓝色清真寺、圣索菲亚、地下水宫'},
+{d:3,t:'9.28 周日',n:'飞达拉曼→费特希耶',s:'内飞+取车，逛码头小镇'},
+{d:4,t:'9.29 周一',n:'费特希耶→卡什',s:'D400公路自驾，Kaputas海滩'},
+{d:5,t:'9.30 周二',n:'D400→安塔利亚',s:'安塔菲勒斯古剧场→安塔利亚'},
+{d:6,t:'10.1 周三',n:'安塔利亚·西代古城',s:'哈德良门、阿斯潘多斯、佩尔盖'},
+{d:7,t:'10.2 周四',n:'飞卡帕多奇亚·红线',s:'格雷梅博物馆、乌奇萨城堡'},
+{d:8,t:'10.3 周五',n:'热气球·绿线',s:'热气球+地下城+峡谷徒步'},
+{d:9,t:'10.4 周六',n:'卡帕自由日',s:'热气球/陶瓷小镇/自由安排'},
+{d:10,t:'10.5 周日',n:'伊斯坦布尔·新城区',s:'独立大街、加拉塔石塔'},
+{d:11,t:'10.6 周一',n:'海峡游船·亚洲区',s:'博斯普鲁斯游船、王子岛'},
+{d:12,t:'10.7 周二',n:'返程起飞',s:'12:30 IST 起飞'},
+{d:13,t:'10.8 周三',n:'抵达杭州',s:'16:10 萧山机场降落'}];
+
+var P=[
+[8,24,2,'蓝色清真寺','Blue Mosque Istanbul'],
+[9.5,22,2,'圣索菲亚大教堂','Hagia Sophia Istanbul'],
+[7.5,26,2,'地下水宫','Basilica Cistern Istanbul'],
+[6,28,2,'苏丹阿赫迈特广场','Sultanahmet Square'],
+[22,74,3,'费特希耶','Fethiye Turkey'],
+[24,78,4,'厄吕代尼兹','Oludeniz Turkey'],
+[33,83,4,'Kaputas海滩','Kaputas Beach Turkey'],
+[40,84,4,'卡什小镇','Kas Turkey'],
+[44,82,5,'安塔菲勒斯古剧场','Antiphellos Theatre Kas'],
+[54,65,6,'哈德良门','Hadrians Gate Antalya'],
+[58,62,6,'阿斯潘多斯剧场','Aspendos Theatre'],
+[56,58,6,'佩尔盖古城','Perge Antalya'],
+[72,38,7,'格雷梅露天博物馆','Goreme Open Air Museum'],
+[70,35,7,'乌奇萨城堡','Uchisar Castle'],
+[74,40,7,'爱情谷观景台','Love Valley Goreme'],
+[68,48,8,'代林库尤地下城','Derinkuyu Underground City'],
+[63,58,8,'厄赫拉热峡谷','Ihlara Valley'],
+[64,55,8,'塞利梅修道院','Selime Monastery'],
+[71,42,8,'鸽子谷','Pigeon Valley Goreme'],
+[75,44,9,'陶瓷小镇 Avanos','Avanos Turkey'],
+[12,18,10,'加拉塔石塔','Galata Tower Istanbul'],
+[13.5,16,10,'独立大街','Istiklal Avenue Istanbul'],
+[10,20,11,'博斯普鲁斯海峡','Bosphorus Cruise Istanbul'],
+[16,24,11,'王子岛','Princes Islands Istanbul']];
+
+var D=[
+{d:1,dt:'9月26日 周五',ti:'出发日',ci:['杭州'],tr:null,su:'先头小队自由行动，11:00 萧山机场起飞，开始土耳其之旅。带上好心情和猫猫贴纸出发！',sp:[]},
+{d:2,dt:'9月27日 周六',ti:'伊斯坦布尔 · 欧洲老城区',ci:['伊斯坦布尔-欧洲老城区'],
+ tr:'11:00 抵达 IST 机场，乘地铁/出租前往老城区（约40分钟）',
+ su:'下午游览欧洲老城区核心景点群，傍晚在苏丹阿赫迈特广场感受古城氛围。街头的土耳其猫猫会热情迎接你。',
+ sp:[
+  {n:'蓝色清真寺',e:'Blue Mosque',x:'建于1609-1616年，六座宣礼塔与两万余片手绘伊兹尼克蓝色瓷砖使其成为奥斯曼建筑巅峰之作。内部穹顶高耸，光线透过260扇彩窗洒入，神圣而宁静。',
+   p:'避开礼拜时段（周五13:00前不开放）；入内脱鞋，女士需戴头巾（入口可免费借用）；建议30-45分钟。',b:'下午光线最佳',r:'紧邻圣索菲亚与方尖碑，步行5分钟'},
+  {n:'方尖碑',e:'Obelisk of Theodosius',x:'矗立在古赛马场遗址上的古埃及方尖碑，约公元前1490年铸造于卢克索，公元390年运至君士坦丁堡。',p:'全天免费，5-10分钟可游览；旁边还有蛇柱和德意志喷泉。',b:'顺路经过即可',r:'蓝色清真寺步行3分钟'},
+  {n:'圣索菲亚大教堂',e:'Hagia Sophia',x:'公元537年建成，近千年间都是世界最大教堂。穹顶直径31米，先后作为教堂、清真寺、博物馆，2020年重新开放为清真寺。',p:'免费但需排队（旺季30-60分钟）；女士需戴头巾，脱鞋；二楼画廊有精美马赛克。建议1小时。',b:'清晨排队人少',r:'蓝色清真寺对面'},
+  {n:'地下水宫',e:'Basilica Cistern',x:'公元532年建造，336根大理石柱撑起砖砌拱顶。昏暗红光、水面倒影和美杜莎头像柱基营造神秘氛围。',p:'门票约 900 里拉；走道湿滑注意安全；约20-30分钟。',b:'下午参观，宫内凉爽避暑',r:'圣索菲亚步行3分钟'},
+  {n:'苏丹阿赫迈特广场',e:'Sultanahmet Square',x:'历史半岛核心广场，原为拜占庭赛马场。傍晚灯光亮起，散步可感受千年古城氛围。',p:'全天免费；傍晚散步氛围最佳；附近有众多烤肉餐厅。',b:'傍晚时分最美',r:'广场周围即是核心景点群'}
+]},
+{d:3,dt:'9月28日 周日',ti:'飞达拉曼 → 自驾费特希耶',ci:['费特希耶'],
+ tr:'内飞 IST→达拉曼（约1.5h）；自驾 达拉曼机场取车→费特希耶 52km 约1.2h',
+ su:'上午内飞到达拉曼，机场取车后自驾前往费特希耶。下午逛码头和小镇，感受地中海度假氛围。',
+ sp:[{n:'费特希耶',e:'Fethiye',x:'地中海沿岸魅力港口城市，以碧蓝泻湖和跳岛游闻名。marina码头停满游艇，小镇氛围悠闲。',p:'码头附近餐厅适合晚餐看日落；老城区可逛鱼市场。',b:'傍晚在码头看日落',r:'利西亚石棺墓（步行可达）'}
+]},
+{d:4,dt:'9月29日 周一',ti:'费特希耶 → D400 → 卡什',ci:['费特希耶','卡什'],
+ tr:'自驾 D400：费特希耶→Kaputas海滩→卡什（约110km 2.5h+）',
+ su:'早上可选滑翔伞或跳岛游（可跳过），沿D400地中海公路南下，途经Kaputas海滩，抵达卡什小镇。',
+ sp:[
+  {n:'厄吕代尼兹（可选）',e:'Oludeniz Blue Lagoon',x:'「死海」碧蓝泻湖，世界顶级滑翔伞起飞地。从1969米山顶起飞，15-20分钟降落在海滩。',p:'滑翔伞约 1500-2500 里拉/人；跳岛游约10:30-17:00；标注「可跳过」。',b:'滑翔伞建议上午',r:'蝴蝶谷（需乘船）'},
+  {n:'Kaputas海滩',e:'Kaputas Beach',x:'D400悬崖下的宝石色海湾，需走187级台阶到达。水清沙幼，被评为土耳其最美海滩之一。',p:'自带水和食物；回程爬台阶较累；旺季停车位难找。',b:'上午10点前人少光线好',r:'卡什小镇（D400东行20分钟）'},
+  {n:'卡什小镇',e:'Kas',x:'悬崖上的地中海小镇，三角梅花海环绕。Bayrak观景台和Kas Photo Spot是网红打卡点。',p:'Bayrak观景台看日落绝佳；多家海鲜餐厅推荐；适合慢逛2-3小时。',b:'傍晚逛小镇+看日落',r:'Meis岛（半日游）'}
+]},
+{d:5,dt:'9月30日 周二',ti:'D400 → 安塔利亚',ci:['卡什','安塔利亚'],
+ tr:'自驾 D400：卡什→安塔利亚 约100km 2h',
+ su:'沿D400继续东行，途中游览安塔菲勒斯古剧场，下午抵达安塔利亚。',
+ sp:[{n:'安塔菲勒斯古剧场',e:'Antiphellos Theatre',x:'希腊罗马时期露天剧场遗址，依山面海，可容纳4000人。地中海和Meis岛构成天然背景。',p:'免费；从卡什约10分钟；建议30分钟。',b:'上午光线好',r:'卡什小镇10分钟车程'}
+]},
+{d:6,dt:'10月1日 周三',ti:'安塔利亚 · 西代古城',ci:['安塔利亚','西代'],
+ tr:'自驾 D400：安塔利亚↔西代 单程75km 约1.3h',
+ su:'上午游览安塔利亚老城，下午自驾前往西代古城遗址区，傍晚返回。',
+ sp:[
+  {n:'哈德良门',e:"Hadrian's Gate",x:'公元130年纪念罗马皇帝哈德良到访而建的大理石三拱门，穿过即进入老城区。',p:'全天免费；门下保留古罗马车辙；拍照从外侧取景。',b:'上午或傍晚',r:'步行入老城即达钟楼'},
+  {n:'钟楼与共和国广场',e:'Clock Tower',x:'塞尔柱时期方形石钟塔，老城地标。旁边共和国广场有喷泉和棕榈树。',p:'全天免费，10-15分钟可游览。',b:'顺路经过',r:'哈德良门步行5分钟'},
+  {n:'安塔利亚老港',e:'Old Harbor',x:'罗马时期古港口，现为游艇码头。从悬崖公园俯瞰全景壮观。',p:'可沿阶梯下到港口或乘电梯；傍晚看日落。',b:'傍晚悬崖公园看日落',r:'杜登瀑布'},
+  {n:'阿斯潘多斯剧场',e:'Aspendos Theatre',x:'公元2世纪，世界保存最完好的古剧场之一。声学设计精妙，舞台轻声说话最远排也能听到。',p:'门票约 450 里拉；建议45-60分钟。',b:'上午人少',r:'佩尔盖古城车程20分钟'},
+  {n:'佩尔盖古城',e:'Perge',x:'公元前1000年古城，罗马大道两侧柱廊保存完好，规模宏大但游客较少。',p:'门票约 350 里拉；穿舒适鞋，预留1-1.5小时。',b:'下午光线斜照效果美',r:'阿斯潘多斯车程20分钟'}
+]},
+{d:7,dt:'10月2日 周四',ti:'飞卡帕多奇亚 · 红线',ci:['卡帕多奇亚·格雷梅小镇'],
+ tr:'内飞 安塔利亚→开塞利（约1h）；接机/自驾→格雷梅（约75km 1h）',
+ su:'上午飞往卡帕多奇亚，下午走经典红线游览核心景点，傍晚看日落。推荐体验洞穴酒店。',
+ sp:[
+  {n:'格雷梅露天博物馆',e:'Goreme Open Air Museum',x:'UNESCO世界遗产，火山凝灰岩中开凿的十余座洞穴教堂，保存10-13世纪精美壁画。暗黑教堂色彩最鲜艳（需额外购票）。',p:'门票约 650+180 里拉；建议1.5-2小时；旺季上午人少。',b:'上午9-10点避开旅行团',r:'步行至格雷梅镇中心'},
+  {n:'乌奇萨城堡',e:'Uchisar Castle',x:'卡帕最高地标，天然岩石城堡。登顶360度俯瞰仙人烟囱地貌，日落壮观。',p:'门票约 250 里拉；攀登15-20分钟；日落前1小时到达。',b:'日落时分',r:'鸽子谷徒步路线'},
+  {n:'爱情谷观景台',e:'Love Valley Sunset Point',x:'格雷梅边缘观景台，俯瞰仙人烟囱石柱群。日落时金红色石柱+远处热气球，最经典画面。',p:'免费；日落前30分钟到达；镇中心步行约15分钟。',b:'日落时分',r:'格雷梅镇中心'}
+]},
+{d:8,dt:'10月3日 周五',ti:'热气球 · 绿线',ci:['卡帕多奇亚·格雷梅小镇'],tr:null,
+ su:'清晨看热气球起飞（运气好可乘坐），回酒店补觉。下午走绿线游览地下城和峡谷。',
+ sp:[
+  {n:'热气球体验',e:'Hot Air Balloon',x:'全球最热门热气球体验。清晨日出前起飞，数十到上百只热气球同时升空，飞行约1小时。',p:'约 180-280 欧/人；取消率约30-40%，建议预留2天窗口；穿保暖衣物。',b:'日出时分起飞（约5:30）',r:'可在酒店露台免费观赏'},
+  {n:'代林库尤地下城',e:'Derinkuyu',x:'8层深达85米的地下城，最多容纳两万人。内有教堂、学校、酒窖等完整设施。',p:'门票约 400 里拉；通道低矮需弯腰；幽闭恐惧症慎入；内温约13度C带外套。',b:'上午参观',r:'格雷梅驱车约40分钟'},
+  {n:'厄赫拉热峡谷',e:'Ihlara Valley',x:'16公里长峡谷，深达150米。谷底溪流，两岸隐藏100多座洞穴教堂。10月秋叶斑斓。',p:'门票约 300 里拉；全程4-5h可选部分路段；穿舒适鞋带水。',b:'上午开始徒步',r:'塞利梅修道院（车程20分钟）'},
+  {n:'塞利梅修道院',e:'Selime Monastery',x:'卡帕最大岩石开凿建筑群，含大教堂和多个礼拜堂。顶部平台俯瞰峡谷全景。',p:'门票约 200 里拉；攀登较陡；建议30-45分钟。',b:'下午光线效果佳',r:'厄赫拉热峡谷出口'},
+  {n:'鸽子谷（可选）',e:'Pigeon Valley',x:'格雷梅到乌奇萨之间4公里峡谷，崖壁密布鸽子洞。轻松徒步路线。',p:'免费；全程约1-1.5h；可标注「可不去」。',b:'下午光线温暖',r:'乌奇萨城堡'}
+]},
+{d:9,dt:'10月4日 周六',ti:'卡帕多奇亚自由日',ci:['卡帕多奇亚','伊斯坦布尔（可选）'],
+ tr:'如返回IST：内飞 开塞利/内夫谢希尔→伊斯坦布尔',
+ su:'自由安排日。可再坐热气球、参观陶瓷小镇、Love Valley看热气球起飞；也可提前飞回伊斯坦布尔。',
+ sp:[
+  {n:'陶瓷小镇 Avanos',e:'Avanos',x:'红河畔传统陶艺小镇，制陶历史追溯至公元前2000年。可观看现场制作并体验亲手制陶。',p:'体验制陶约 200-400 里拉；格雷梅驱车约15分钟。',b:'上午参观工坊',r:'Zelve露天博物馆'},
+  {n:'Love Valley（可选）',e:'Love Valley',x:'清晨观赏热气球起飞的最佳免费观赏点。日出时数十只热气球从头顶飘过。',p:'免费；日出前30分钟到达；格雷梅打车约10分钟。',b:'日出时分',r:'格雷梅镇中心'}
+]},
+{d:10,dt:'10月5日 周日',ti:'伊斯坦布尔 · 欧洲新城区',ci:['伊斯坦布尔-欧洲新城区'],
+ tr:'坐轮渡 从亚洲区/老城跨海至欧洲新城区',
+ su:'乘轮渡跨海来到新城区，漫步独立大街、登加拉塔石塔俯瞰全城。',
+ sp:[
+  {n:'加拉塔石塔',e:'Galata Tower',x:'1348年热那亚建造，高67米。塔顶360度俯瞰金角湾和伊斯坦布尔全景。',p:'门票约 650 里拉；建议开门即去或傍晚；电梯到8楼后爬旋转楼梯。',b:'9:00开门或日落',r:'步行可达独立大街'},
+  {n:'独立大街',e:'Istiklal Avenue',x:'最繁华步行街，全长1.4公里。复古红色有轨电车穿行，两侧欧式建筑。花市和鱼市场值得一逛。',p:'全天开放；建议傍晚逛；推荐 Hafiz Mustafa 1864 甜品。',b:'傍晚至夜间',r:'塔克西姆广场'},
+  {n:'多玛巴切皇宫（可选）',e:'Dolmabahce Palace',x:'1856年奥斯曼最后皇宫，水晶楼梯、4.5吨水晶吊灯、14吨黄金装饰。',p:'门票约 1050 里拉；必须跟导游；禁止拍照；周一闭馆；预留2小时。',b:'上午人少',r:'海峡边，可搭配游船'}
+]},
+{d:11,dt:'10月6日 周一',ti:'海峡游船 · 亚洲区',ci:['伊斯坦布尔-亚洲区'],tr:null,
+ su:'博斯普鲁斯海峡游船+王子岛，或托普卡帕宫/考古博物馆/香料市场/亚洲区。部分成员当日返回。',
+ sp:[
+  {n:'博斯普鲁斯海峡游船',e:'Bosphorus Cruise',x:'穿越连接黑海和马尔马拉海的海峡，两岸分别是欧洲和亚洲。途中可见多座宫殿和少女塔。',p:'短程约2h，从Eminonu码头出发约 250 里拉；注意防晒。',b:'下午出发，日落回码头',r:'Eminonu码头旁即香料市场'},
+  {n:'王子岛',e:"Princes' Islands",x:'马尔马拉海上九座小岛，岛上禁止机动车。维多利亚风格木别墅、松林小径，悠闲一日游。',p:'渡轮约1-1.5h；往返约 150 里拉；岛上租自行车约 150 里拉/h；预留半天。',b:'上午出发下午返回',r:'从游船码头即可乘船'}
+]},
+{d:12,dt:'10月7日 周二',ti:'返程起飞',ci:['伊斯坦布尔'],tr:'12:30 IST 机场起飞',su:'上午前往机场，12:30 起飞。建议提前3小时到达办理退税和登机。',sp:[]},
+{d:13,dt:'10月8日 周三',ti:'抵达杭州',ci:['杭州'],tr:'16:10 萧山机场降落',su:'16:10 降落萧山机场，结束13天的土耳其之旅。回家撸自家猫～',sp:[]}
+];
+
+/* DEFAULT TODOS */
+var defaultTodos=[
+{text:'办理土耳其电子签证 (e-Visa)',done:false},
+{text:'预订 IST→达拉曼 内飞机票',done:false},
+{text:'预订 安塔利亚→开塞利 内飞机票',done:false},
+{text:'预订租车 (cizgi rent a car)',done:false},
+{text:'预订卡帕多奇亚热气球',done:false},
+{text:'预订洞穴酒店',done:false},
+{text:'准备国际驾照翻译件',done:false},
+{text:'换土耳其里拉',done:false},
+{text:'下载离线地图 (Maps.me / Google)',done:false},
+{text:'准备防晒+围巾(清真寺用)',done:false},
+{text:'买猫粮带给土耳其街头猫猫 🐱',done:false}
+];
+var todos=defaultTodos.slice();
+
+/* === RENDER TIMELINE (used as day tabs) === */
+var dtE=document.getElementById('DT');
+D.forEach(function(d,i){
+  var el=document.createElement('div');
+  el.className='dtab'+(i===0?' on':'');
+  el.dataset.d=d.d;
+  el.innerHTML=CATS[i%CATS.length]+' Day '+d.d+'<small>'+d.dt.substring(0,6)+'</small>';
+  el.onclick=function(){go(d.d)};
+  dtE.appendChild(el);
+});
+
+var dcE=document.getElementById('DC');
+function go(n){
+  var ts=document.querySelectorAll('.dtab');
+  for(var i=0;i<ts.length;i++) ts[i].className='dtab'+(+ts[i].dataset.d===n?' on':'');
+  var d=null;for(var i=0;i<D.length;i++)if(D[i].d===n){d=D[i];break;}
+  if(!d)return;render(d);
+  var a=document.querySelector('.dtab[data-d="'+n+'"]');
+  if(a)a.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+function render(d){
+  var cat=CATS[(d.d-1)%CATS.length];
+  var h='<div class="dh"><h3>'+cat+' Day '+d.d+' &middot; '+d.dt+'</h3><p>'+d.ti+'</p>';
+  h+='<div class="dr">';
+  for(var i=0;i<d.ci.length;i++) h+='<span>&#128205; '+d.ci[i]+'</span>';
+  h+='</div></div>';
+  h+='<div class="ds">'+d.su+'</div>';
+  if(d.tr) h+='<div class="tr"><span class="tr-icon">🚗</span><span>'+d.tr+'</span></div>';
+  for(var i=0;i<d.sp.length;i++){
+    var s=d.sp[i];
+    var g='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(s.n+' '+s.e);
+    h+='<div class="sp"><div class="sh"><span class="sn">'+s.n+'</span><span class="se">'+s.e+'</span>';
+    h+='<a class="sm" href="'+g+'" target="_blank">&#128205; 地图</a></div>';
+    h+='<div class="sb">'+s.x+'</div>';
+    h+='<div class="tb"><b>&#128161; 贴士：</b>'+s.p+'</div>';
+    if(s.b) h+='<div class="tb t2"><b>&#128336; 最佳：</b>'+s.b+'</div>';
+    if(s.r) h+='<div class="nr">&#128204; 周边：'+s.r+'</div>';
+    h+='</div>';
+  }
+  if(d.sp.length===0) h+='<div style="text-align:center;padding:28px;color:var(--mut)">'+cat+' '+d.su+'</div>';
+  dcE.innerHTML=h;
+}
+render(D[0]);
+
+/* === MAP PINS === */
+var mw=document.getElementById('MW');
+P.forEach(function(p){
+  var el=document.createElement('div');el.className='mp';
+  el.style.left=p[0]+'%';el.style.top=p[1]+'%';
+  var c=CC[p[2]]||'#999';
+  el.innerHTML='<div class="md" style="background:'+c+'"><span>'+p[2]+'</span></div><div class="mt">'+p[3]+'</div>';
+  el.onclick=function(){window.open('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p[4]),'_blank')};
+  mw.appendChild(el);
+});
+var lgE=document.getElementById('LG');
+var seen={};
+TL.forEach(function(t){
+  if(seen[t.d])return;seen[t.d]=1;
+  var el=document.createElement('div');el.className='lgi';
+  el.innerHTML='<span class="lgd" style="background:'+(CC[t.d]||'#999')+'"></span>Day'+t.d+' '+t.n.substring(0,8);
+  lgE.appendChild(el);
+});
+
+/* === TODO === */
+var tlE=document.getElementById('TL');
+var tcE=document.getElementById('TC');
+var tiE=document.getElementById('TI');
+
+function renderTodos(){
+  var h='';
+  if(todos.length===0){
+    tlE.innerHTML='<div class="todo-empty">🐱 暂无待办事项，享受旅行吧！</div>';
+    tcE.textContent='';return;
+  }
+  for(var i=0;i<todos.length;i++){
+    var t=todos[i];
+    h+='<li class="todo-item'+(t.done?' done':'')+'" data-i="'+i+'">';
+    h+='<div class="todo-cb" onclick="toggleTodo('+i+')">'+(t.done?'✓':'')+'</div>';
+    h+='<span class="todo-text">'+t.text+'</span>';
+    h+='<span class="todo-del" onclick="delTodo('+i+')">删除</span>';
+    h+='</li>';
+  }
+  tlE.innerHTML=h;
+  var done=0;for(var i=0;i<todos.length;i++)if(todos[i].done)done++;
+  tcE.textContent='已完成 '+done+' / '+todos.length+' 项';
+}
+
+window.addTodo=function(){
+  var v=tiE.value.trim();
+  if(!v)return;
+  todos.push({text:v,done:false});
+  tiE.value='';renderTodos();
+};
+window.toggleTodo=function(i){todos[i].done=!todos[i].done;renderTodos()};
+window.delTodo=function(i){todos.splice(i,1);renderTodos()};
+renderTodos();
+
+/* === NAV === */
+var secs=['fl','it','ms','td','pr'];
+var nls=document.querySelectorAll('nav ul a');
+window.addEventListener('scroll',function(){
+  var cur='';
+  for(var i=0;i<secs.length;i++){
+    var el=document.getElementById(secs[i]);
+    if(el&&el.getBoundingClientRect().top<=100) cur=secs[i];
+  }
+  for(var i=0;i<nls.length;i++){
+    nls[i].className=(nls[i].getAttribute('href')==='#'+cur)?'on':'';
+  }
+});
+
+/* === DRAG SCROLL for flight cards === */
+var fcW=document.getElementById('FC');
+var isDown=false,startX,scrollL;
+fcW.addEventListener('mousedown',function(e){isDown=true;startX=e.pageX-fcW.offsetLeft;scrollL=fcW.scrollLeft;fcW.style.cursor='grabbing'});
+document.addEventListener('mouseup',function(){isDown=false;fcW.style.cursor=''});
+document.addEventListener('mousemove',function(e){if(!isDown)return;e.preventDefault();var x=e.pageX-fcW.offsetLeft;fcW.scrollLeft=scrollL-(x-startX)*1.5});
+})();
+</script>
+</body>
+</html>

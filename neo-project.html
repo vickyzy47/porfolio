@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>异常管理 PMO Agent · NEO 项目展示图</title>
+<style>
+  :root{
+    --bg:#ffffff; --dot:#e9e9e5; --ink:#1c1b18; --ink2:#6f6e66; --line:#d8d7d0;
+    --mint:#e2f3ea; --mint-b:#b9dfcc;
+    --yellow:#fff4c2; --yellow-b:#eed37e;
+    --blue:#e4eefb; --blue-b:#b9d2f0;
+    --orange:#ffe9c7; --orange-b:#eecb96;
+    --pink:#ffe9e2;
+    --r-lg:255px 15px 225px 15px / 15px 225px 15px 255px;
+    --r-md:18px 6px 16px 7px / 7px 16px 6px 18px;
+    --r-sm:10px 4px 9px 5px / 5px 9px 4px 10px;
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    background-image:radial-gradient(var(--dot) 1px, transparent 1px);
+    background-size:22px 22px;
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro SC","PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .poster{width:1600px;margin:0 auto;padding:56px 64px 48px;}
+  .sketch{border:1.6px solid var(--ink);border-radius:var(--r-lg);background:#fff;}
+
+  /* ---------- header ---------- */
+  header{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;padding-bottom:28px;border-bottom:1.6px solid var(--ink);}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--ink2);margin-bottom:10px;}
+  h1{font-size:40px;font-weight:800;letter-spacing:.01em;line-height:1.15;}
+  h1 em{font-style:normal;background:linear-gradient(transparent 62%, var(--yellow) 62%);padding:0 4px;}
+  .sub{margin-top:12px;font-size:15px;color:var(--ink2);line-height:1.7;max-width:760px;}
+  .sub b{color:var(--ink);font-weight:600;}
+  .headline{display:flex;gap:14px;flex-shrink:0;}
+  .hchip{border:1.6px solid var(--ink);border-radius:var(--r-md);background:#fff;padding:14px 18px 12px;min-width:158px;box-shadow:3px 3px 0 var(--ink);}
+  .hchip:nth-child(1){background:var(--yellow);transform:rotate(-.6deg);}
+  .hchip:nth-child(2){background:var(--mint);transform:rotate(.5deg);}
+  .hchip:nth-child(3){background:var(--blue);transform:rotate(-.4deg);}
+  .hnum{font-family:var(--mono);font-size:24px;font-weight:700;letter-spacing:-.02em;}
+  .hlab{font-size:12px;color:var(--ink2);margin-top:4px;line-height:1.5;}
+
+  /* ---------- section head ---------- */
+  .sechead{display:flex;align-items:baseline;gap:14px;margin:40px 0 20px;}
+  .secno{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--ink);border-radius:6px 3px 6px 3px;padding:3px 8px;}
+  .sectitle{font-size:20px;font-weight:700;}
+  .secnote{font-size:12.5px;color:var(--ink2);}
+  .legend{margin-left:auto;display:flex;gap:16px;font-size:12px;color:var(--ink2);align-items:center;}
+  .lg{display:inline-flex;align-items:center;gap:6px;}
+  .sw{width:14px;height:14px;border:1.2px solid var(--ink);border-radius:4px 2px 4px 2px;display:inline-block;}
+
+  /* ---------- section 1 : stage chain ---------- */
+  .chain{display:flex;align-items:stretch;gap:10px;}
+  .stage{flex:1;border:1.6px solid var(--ink);border-radius:var(--r-md);background:#fff;padding:16px 16px 14px;box-shadow:3px 3px 0 rgba(28,27,24,.9);display:flex;flex-direction:column;gap:10px;}
+  .stage:nth-child(odd){transform:rotate(-.35deg);}
+  .stage:nth-child(even){transform:rotate(.3deg);}
+  .sthead{display:flex;align-items:center;gap:9px;}
+  .stno{font-family:var(--mono);font-size:12px;font-weight:700;width:22px;height:22px;border:1.4px solid var(--ink);border-radius:50% 42% 50% 45%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .stname{font-size:16.5px;font-weight:700;}
+  .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink2);margin-bottom:5px;}
+  .note{border:1.3px solid var(--ink);border-radius:var(--r-sm);padding:9px 11px;font-size:13px;line-height:1.55;}
+  .note.proc{background:var(--mint);}
+  .note.res{background:var(--yellow);font-weight:700;}
+  .note.res .num{font-family:var(--mono);font-size:15px;}
+  .arr{align-self:center;flex-shrink:0;}
+
+  /* ---------- section 2 : architecture ---------- */
+  .arch{border:1.6px solid var(--ink);border-radius:var(--r-lg);background:#fff;padding:26px 26px 22px;}
+  .layer{display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:center;}
+  .layer + .layer{margin-top:16px;}
+  .llab{font-size:13px;font-weight:700;color:var(--ink2);writing-mode:horizontal-tb;display:flex;align-items:center;gap:8px;}
+  .llab::before{content:"";width:12px;height:12px;border:1.3px solid var(--ink);border-radius:4px 2px 4px 2px;background:var(--c,#fff);flex-shrink:0;}
+  .llab.dash::before{border-style:dashed;}
+  .inrow{display:flex;gap:16px;justify-content:center;}
+  .chip{border:1.4px solid var(--ink);border-radius:var(--r-sm);padding:9px 22px;font-size:13.5px;font-weight:600;text-align:center;}
+  .chip.in{background:var(--mint);flex:0 0 300px;}
+  .chip.out{background:var(--orange);flex:1;padding:9px 8px;}
+  .chip.kb{background:#fff;border-style:dashed;font-weight:500;color:var(--ink);flex:1;padding:9px 6px;font-size:12.5px;}
+  .chip.ds{background:#fff;border-style:dashed;font-weight:500;flex:1;font-size:12.5px;}
+  .outrow,.kbrow,.dsrow{display:flex;gap:10px;}
+  .agentband{border:1.5px solid var(--blue-b);background:linear-gradient(180deg,#f3f8fe, #eaf2fc);border-radius:var(--r-md);padding:20px 18px 16px;position:relative;}
+  .bandtitle{position:absolute;top:-11px;left:26px;background:#fff;border:1.4px solid var(--ink);border-radius:8px 3px 8px 3px;padding:2px 12px;font-size:13px;font-weight:700;}
+  .agents{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:start;position:relative;}
+  .acol{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;}
+  .acard{width:100%;border:1.5px solid var(--ink);border-radius:var(--r-sm);background:var(--blue);padding:12px 10px 10px;text-align:center;box-shadow:2.5px 2.5px 0 rgba(28,27,24,.85);}
+  .aname{font-size:14.5px;font-weight:700;}
+  .ametric{margin-top:8px;padding-top:7px;border-top:1.2px dashed var(--ink);font-size:11.5px;color:var(--ink);line-height:1.45;}
+  .ametric b{font-family:var(--mono);font-size:12.5px;background:var(--yellow);padding:0 3px;border-radius:3px;}
+  .harr{height:26px;}
+  .divider{border:none;border-top:1.4px solid var(--line);margin:18px 0;}
+
+  /* ---------- section 3 : screenshot ---------- */
+  .shotwrap{position:relative;}
+  .shotframe{border:1.6px solid var(--ink);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:5px 5px 0 rgba(28,27,24,.9);}
+  .shotframe img{display:block;width:100%;height:auto;}
+  .shottag{position:absolute;top:-14px;left:30px;background:var(--pink);border:1.5px solid var(--ink);border-radius:8px 3px 8px 3px;padding:3px 14px;font-size:13px;font-weight:700;transform:rotate(-1deg);}
+  .shotcap{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:13px;color:var(--ink2);}
+  .shotcap b{color:var(--ink);}
+
+  footer{margin-top:36px;padding-top:16px;border-top:1.4px dashed var(--line);display:flex;justify-content:space-between;font-size:12px;color:var(--ink2);font-family:var(--mono);}
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- ======= header ======= -->
+  <header>
+    <div>
+      <div class="kicker">PROJECT · AI AGENT · QUALITY CONTROL</div>
+      <h1>异常管理 PMO Agent · <em>NEO</em></h1>
+      <div class="sub">异常事件上线后的闭环管理者：<b>主动协同 · 进展追踪 · 闭环管理</b>。把异常 PM 每日跨系统巡检、逐个沟通、人工判断升级的工作流，重构为主 Agent 编排 6 个子 Agent 的规则驱动托管。</div>
+    </div>
+    <div class="headline">
+      <div class="hchip"><div class="hnum">8.9h→6.0h</div><div class="hlab">异常 PM 周处理耗时<br>每周释放近 3h</div></div>
+      <div class="hchip"><div class="hnum">100%</div><div class="hlab">I 期功能执行率<br>建群 / 关闭全触发</div></div>
+      <div class="hchip"><div class="hnum">61 件</div><div class="hlab">II 级以上异常覆盖<br>0731–0821 · AE+天淘</div></div>
+    </div>
+  </header>
+
+  <!-- ======= 01 方法论链 ======= -->
+  <div class="sechead">
+    <span class="secno">01</span><span class="sectitle">方法论链 · 过程与结果逐阶段对照</span>
+    <span class="secnote">每个阶段的产物，都对应一个可验收的结果</span>
+    <span class="legend">
+      <span class="lg"><i class="sw" style="background:var(--mint)"></i>过程产物</span>
+      <span class="lg"><i class="sw" style="background:var(--yellow)"></i>结果指标</span>
+    </span>
+  </div>
+
+  <div class="chain">
+    <div class="stage">
+      <div class="sthead"><span class="stno">1</span><span class="stname">调研定义</span></div>
+      <div><div class="lab">PROCESS</div><div class="note proc">三角色痛点矩阵 · 生命周期 SIPOC</div></div>
+      <div><div class="lab">OUTCOME</div><div class="note res"><span class="num">9</span> 痛点收敛 · <span class="num">3</span> 项立入 I 期</div></div>
+    </div>
+    <svg class="arr" width="26" height="20" viewBox="0 0 26 20"><path d="M1 10 H18 M13 4 L19 10 L13 16" fill="none" stroke="#1c1b18" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="stage">
+      <div class="sthead"><span class="stno">2</span><span class="stname">方案设计</span></div>
+      <div><div class="lab">PROCESS</div><div class="note proc">MRD · 主-子 Agent 编排图</div></div>
+      <div><div class="lab">OUTCOME</div><div class="note res"><span class="num">6</span> 子 Agent · <span class="num">8</span> 功能点</div></div>
+    </div>
+    <svg class="arr" width="26" height="20" viewBox="0 0 26 20"><path d="M1 10 H18 M13 4 L19 10 L13 16" fill="none" stroke="#1c1b18" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="stage">
+      <div class="sthead"><span class="stno">3</span><span class="stname">规则知识工程</span></div>
+      <div><div class="lab">PROCESS</div><div class="note proc">建群 · 关闭 · 复盘规则知识库</div></div>
+      <div><div class="lab">OUTCOME</div><div class="note res"><span class="num">9</span> 类规则资产 · R01–R07 全验证</div></div>
+    </div>
+    <svg class="arr" width="26" height="20" viewBox="0 0 26 20"><path d="M1 10 H18 M13 4 L19 10 L13 16" fill="none" stroke="#1c1b18" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="stage">
+      <div class="sthead"><span class="stno">4</span><span class="stname">评测验收</span></div>
+      <div><div class="lab">PROCESS</div><div class="note proc">评测方案 · 自动评测 Agent</div></div>
+      <div><div class="lab">OUTCOME</div><div class="note res">执行率 <span class="num">100%</span> · 四大区验收通过</div></div>
+    </div>
+    <svg class="arr" width="26" height="20" viewBox="0 0 26 20"><path d="M1 10 H18 M13 4 L19 10 L13 16" fill="none" stroke="#1c1b18" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="stage">
+      <div class="sthead"><span class="stno">5</span><span class="stname">迭代验证</span></div>
+      <div><div class="lab">PROCESS</div><div class="note proc">提效测算表 · II 期需求清单</div></div>
+      <div><div class="lab">OUTCOME</div><div class="note res">规则明确场景提效 <span class="num">≥80%</span></div></div>
+    </div>
+  </div>
+
+  <!-- ======= 02 产品架构 ======= -->
+  <div class="sechead">
+    <span class="secno">02</span><span class="sectitle">产品架构 · 编排、知识与系统支撑</span>
+    <span class="secnote">每个子 Agent 下方标注其上线验收结果</span>
+    <span class="legend">
+      <span class="lg"><i class="sw" style="background:var(--blue)"></i>Agent 模块</span>
+      <span class="lg"><i class="sw" style="background:var(--orange)"></i>系统输出</span>
+      <span class="lg"><i class="sw" style="background:#fff;border-style:dashed"></i>知识 / 数据资产</span>
+    </span>
+  </div>
+
+  <div class="arch">
+    <div class="layer">
+      <div class="llab" style="--c:var(--mint)">输入</div>
+      <div class="inrow">
+        <div class="chip in">异常事件系统数据</div>
+        <div class="chip in">协同群聊信息</div>
+      </div>
+    </div>
+
+    <div class="layer" style="margin-top:18px;">
+      <div class="llab" style="--c:var(--blue)">Agent</div>
+      <div class="agentband">
+        <div class="bandtitle">异常管理 Agent · NEO</div>
+        <div class="agents">
+          <div class="acol">
+            <div class="acard"><div class="aname">协同启动 subAgent</div><div class="ametric"><b>39</b> 件触发 · 执行率 <b>100%</b></div></div>
+          </div>
+          <div class="acol">
+            <div class="acard"><div class="aname">进展追踪 subAgent</div><div class="ametric">进展汇总周省 <b>2.2h</b></div></div>
+            <svg class="harr" width="20" height="26" viewBox="0 0 20 26"><path d="M10 25 V8 M4 13 L10 6 L16 13" fill="none" stroke="#1c1b18" stroke-width="1.6" stroke-dasharray="4 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="acard" style="background:var(--pink)"><div class="aname">异常健康度风险评估 subAgent</div><div class="ametric">健康度 V4 · 时效维度升级算法</div></div>
+          </div>
+          <div class="acol">
+            <div class="acard"><div class="aname">进展播报 subAgent</div><div class="ametric">管理层触达 <b>3 次/周</b></div></div>
+          </div>
+          <div class="acol">
+            <div class="acard"><div class="aname">异常关闭 subAgent</div><div class="ametric">关闭验收 <b>4 大区</b>通过</div></div>
+          </div>
+          <div class="acol">
+            <div class="acard"><div class="aname">异常复盘 subAgent</div><div class="ametric">复盘模板预填充 · II 期 <b>P0</b></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layer" style="margin-top:18px;">
+      <div class="llab" style="--c:var(--orange)">输出</div>
+      <div class="outrow">
+        <div class="chip out">钉钉群</div>
+        <div class="chip out">进展报告</div>
+        <div class="chip out">待办清单</div>
+        <div class="chip out">管理层触达信息</div>
+        <div class="chip out">异常事件状态变更</div>
+        <div class="chip out">复盘文档</div>
+        <div class="chip out">应急预案</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="layer">
+      <div class="llab dash" style="--c:#fff">知识库</div>
+      <div class="kbrow">
+        <div class="chip kb">异常事件管理细则</div>
+        <div class="chip kb">建群规则</div>
+        <div class="chip kb">跟进规则</div>
+        <div class="chip kb">历史进展播报内容</div>
+        <div class="chip kb">异常关闭规则</div>
+        <div class="chip kb">历史复盘文档</div>
+        <div class="chip kb">复盘模板</div>
+        <div class="chip kb">应急预案库</div>
+        <div class="chip kb">异常健康度规则</div>
+      </div>
+    </div>
+
+    <div class="layer" style="margin-top:14px;">
+      <div class="llab dash" style="--c:#fff">系统数据</div>
+      <div class="dsrow">
+        <div class="chip ds">事件管理系统</div>
+        <div class="chip ds">钉钉 API（群 / 消息 / 文档）</div>
+        <div class="chip ds">轨迹中心（节点数据）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= 03 最终产品形态 ======= -->
+  <div class="sechead">
+    <span class="secno">03</span><span class="sectitle">最终产品形态 · 质控运营中心驾驶舱</span>
+    <span class="secnote">Neo 数字人卡片即 NEO 工作台入口</span>
+  </div>
+
+  <div class="shotwrap">
+    <div class="shottag">RESULT · 真实上线截图（已脱敏）</div>
+    <div class="shotframe"><img src="assets/neo-workbench.png" alt="质控运营中心管理驾驶舱：指标达成、运营日历、物流数字人（Scout / Neo / Ally）与 Agent 执行记录（业务数据已脱敏）"></div>
+    <div class="shotcap">
+      <span><b>质控运营中心 · 管理驾驶舱</b> —— 指标达成 / 运营日历待办 / 物流数字人执行记录三屏合一 · 业务数值与国家信息已脱敏</span>
+      <span>Scout 运营波动 · <b>Neo 异常管理</b> · Ally CP 协同</span>
+    </div>
+  </div>
+
+  <footer>
+    <span>SCOPE: AE + 天淘 · I 期上线 2026-07-24 / 07-31 · II 期 2026-08-30</span>
+    <span>YANG ZIYUE · PM OWNER · NEO EXCEPTION MANAGEMENT AGENT</span>
+  </footer>
+
+</div>
+</body>
+</html>
